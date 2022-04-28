@@ -1,0 +1,14 @@
+name: CI
+on: [push, pull_request]
+jobs:
+ build:
+  runs-on: ubuntu-latest  
+  steps:
+    - name: checkout
+      uses: actions/checkout@v1
+    - name: build
+      run: |
+       cmake -B ./output
+       cd output
+       make
+       ./project
